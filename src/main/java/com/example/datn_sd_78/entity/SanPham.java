@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -35,7 +36,7 @@ public class SanPham {
     private Timestamp ngaySua;
 
     @Column(name = "anh")
-    private String anh; // Lưu đường dẫn đến ảnh
+    private String anh;
 
     @Column(name = "soLuong")
     private int soLuong;
@@ -64,13 +65,12 @@ public class SanPham {
     @JoinColumn(name = "id_danh_muc_san_pham")
     private DanhMuc danhMuc;
 
-    public void setMauSac(MauSac mauSac) {
-    }
+    @OneToMany(mappedBy = "sanPham", cascade = CascadeType.ALL)
+    private List<SanPhamChiTiet> chiTietSanPham;
 
-    public void setSize(Size size) {
-    }
+//    @ManyToOne
+//
+//    private List<Anh> anhs;
 
-    public void setQrcode(String qrcode) {
-    }
 }
 
