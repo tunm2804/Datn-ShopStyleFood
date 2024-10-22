@@ -1,4 +1,4 @@
-package com.demo.entity;
+package com.example.datn_sd_78.entity;
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.AllArgsConstructor;

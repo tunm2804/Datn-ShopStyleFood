@@ -2,7 +2,6 @@ package com.example.datn_sd_78.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.stereotype.Controller;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;

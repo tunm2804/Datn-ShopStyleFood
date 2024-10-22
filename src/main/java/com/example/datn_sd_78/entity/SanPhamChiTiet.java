@@ -1,10 +1,7 @@
 package com.example.datn_sd_78.entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.Data;
-import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Data
 @Entity

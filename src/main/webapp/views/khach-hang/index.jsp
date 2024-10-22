@@ -11,124 +11,180 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            background-color: #F5F5F5;
-        }
-
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
         }
 
-        .container {
-            display: flex;
-            height: 100%;
-            margin-left: 220px; /* Để không bị che khuất bởi sidebar */
-            padding: 20px;
-            width: calc(100% - 220px); /* Đảm bảo nội dung không bị che khuất */
-        }
-
+        /* Sidebar */
         .sidebar {
-            position: fixed; /* Cố định thanh bên */
+            position: fixed;
             top: 0;
             left: 0;
-            width: 200px;
+            width: 240px;
             height: 100%;
-            background-color: #444444;
+            background-color: #2c3e50;
             padding: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .logo {
-            font-family: 'Arial', sans-serif;
-            font-size: 36px; /* Kích thước chữ cho logo */
-            color: #ffffff; /* Màu chữ cho logo */
-            text-align: center; /* Căn giữa chữ */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
-            margin-bottom: 20px; /* Khoảng cách dưới logo */
-            padding: 10px; /* Khoảng cách trong logo */
-            border: 3px solid #ff4b2b; /* Viền cho logo */
-            border-radius: 10px; /* Bo góc cho viền */
-            background: linear-gradient(135deg, #ff416c, #337ab7);
-            display: inline-block; /* Để có thể căn giữa theo chiều ngang */
+            font-size: 28px;
+            color: white;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
         }
 
-        .sidebar h2 {
-            text-align: center;
+        .logo i {
+            font-size: 40px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            color: #ff6600;
+            font-size: 22px;
         }
 
         .sidebar ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
+            flex-grow: 1;
         }
 
         .sidebar ul li {
-            padding: 10px;
+            padding: 15px 10px;
             cursor: pointer;
-            position: relative;
+            border-bottom: 1px solid #ff6600;
         }
 
         .sidebar ul li a {
             color: white;
             text-decoration: none;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: start;
+            font-size: 16px;
         }
 
-        .sidebar ul li.active {
-            background-color: white;
-            color: black;
-            border: 1px solid #800080;
+        .sidebar ul li a i {
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #34495e;
+        }
+
+        .logout a {
+            color: white;
+            background-color: #e74c3c;
+            padding: 10px 20px;
             border-radius: 5px;
+            text-align: center;
         }
 
+        .logout a:hover {
+            background-color: #c0392b;
+        }
         .sidebar ul li ul {
-            display: none; /* Ẩn danh sách con ban đầu */
+            display: none;
             list-style-type: none;
-            padding-left: 10px;
-            margin-top: 5px;
+            padding-left: 20px;
+            margin: 0;
         }
 
         .sidebar ul li ul li {
-            padding: 5px;
-
+            padding: 10px 0;
         }
 
-        .main-content {
-            flex: 1;
+        .sidebar ul li ul li a {
+            font-size: 14px;
+            color: #cccccc;
+        }
+        .logout a {
+            color: white;
+            background-color: #e74c3c;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .logout a:hover {
+            background-color: #c0392b;
+        }
+        /* Main content */
+        .container {
+            margin-left: 280px;
             padding: 20px;
         }
 
-        h2 {
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .search {
+            display: flex;
+            justify-content: flex-start; /* Căn trái cho hàng tìm kiếm */
+            align-items: center; /* Căn giữa theo chiều dọc */
             margin-bottom: 20px;
         }
 
-        .btn {
+        .search input[type="text"] {
+            width: 500px; /* Tùy chỉnh kích thước ô nhập */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .search button {
             padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .search button:hover {
+            background-color: #2980b9;
+        }
+
+        .btnadd {
+            background-color: #28a745;
+            padding: 10px 15px; /* Giảm padding để nút vừa với chữ */
             color: white;
             text-decoration: none;
-            border-radius: 10px;
-            margin-right: 5px;
+            border-radius: 5px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            margin-left: auto; /* Đẩy nút sang bên phải */
+            white-space: nowrap; /* Đảm bảo nội dung không bị xuống dòng */
+            width: 153px;
         }
 
-        .btn-primary {
-            background-color: #007bff;
-        }
 
-        .btn-danger {
-            background-color: #dc3545;
-        }
-
-        .btn-warning {
-            background-color: #ffc107;
-        }
 
         .table {
             width: 100%;
@@ -144,18 +200,39 @@
         }
 
         .table th {
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #2c3e50;
         }
 
         .table tr:hover {
-            background-color: #e0f7fa; /* Màu nền khi hover */
+            background-color: #e9ecef;
         }
 
-        .fa-chevron-down,
-        .fa-chevron-right {
-            transition: transform 0.3s ease;
+        .btn-warning,
+        .btn-danger {
+            padding: 5px 10px;
             color: white;
-            margin-right: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
         }
 
         .pagination {
@@ -211,7 +288,14 @@
         .icon {
             margin-right: 10px;
         }
+        /* Submenu toggle */
+        .fa-chevron-right {
+            margin-left: auto;
+        }
 
+        .fa-chevron-down {
+            margin-left: auto;
+        }
         .alert {
             padding: 15px;
             margin-top: 10px;
@@ -241,82 +325,58 @@
             background: none;
             cursor: pointer;
         }
-
-        /*Tìm kiếm*/
-        .search {
-            margin-bottom: 20px; /* Thêm khoảng cách dưới cho khung tìm kiếm */
-            display: flex; /* Dùng flexbox để căn hàng cho ô input và nút tìm kiếm */
-            align-items: center; /* Căn giữa theo chiều dọc */
-        }
-
-
-        .search input[type="text"] {
-            width: 800px; /* Độ rộng của ô input */
-            padding: 8px 12px; /* Khoảng cách bên trong của ô input */
-            border: 1px solid #ccc; /* Đường viền màu xám nhạt */
-            border-radius: 5px; /* Bo tròn các góc */
-            font-size: 16px; /* Kích thước font chữ */
-            outline: none; /* Bỏ viền outline mặc định */
-            margin-right: 10px; /* Khoảng cách giữa ô input và nút */
-        }
-
-
-        .search button {
-            padding: 8px 15px; /* Khoảng cách bên trong của nút */
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-
-        .search button:hover {
-            background-color: #0056b3;
-        }
-
-        .btnadd {
-            margin-left: 1050px;
-        }
-
-        .title {
-            font-size: 35px;
-        }
-
     </style>
 </head>
 <body>
+<aside class="sidebar">
+    <div class="logo">
+        <span>F</span><span style="color: white;">ootStyle</span>
+    </div>
+    <ul>
+        <li><a href="#"><i class="bi bi-clock"></i> Thống kê</a></li>
+        <li><a href="#"><i class="bi bi-cash"></i> Bán hàng tại quầy</a></li>
+        <li><a href="#"><i class="bi bi-receipt"></i> Quản lý đơn hàng</a></li>
+        <li>
+            <a href="javascript:void(0)" onclick="toggleMenu(this)">
+                <i class="bi bi-box"></i> Quản lý sản phẩm <i class="fa fa-chevron-right"></i>
+            </a>
+            <ul>
+                <li><a href="#"><i class="bi bi-dot"></i> Sản phẩm</a></li>
+                <li><a href="#"><i class="bi bi-dot"></i> Size</a></li>
+                <li><a href="#"><i class="bi bi-dot"></i> Chất liệu</a></li>
+                <li><a href="#"><i class="bi bi-dot"></i> Thương hiệu</a></li>
+            </ul>
+        </li>
+        <li><a href="#"><i class="bi bi-tags"></i> Khuyến mãi</a></li>
+        <li>
+            <a href="javascript:void(0)" onclick="toggleMenu(this)">
+                <i class="bi bi-person"></i> Quản lý tài khoản <i class="fa fa-chevron-right"></i>
+            </a>
+            <ul>
+                <li><a href="/nhan-vien/hien-thi"><i class="bi bi-dot"></i> Quản lí nhân viên</a></li>
+                <li><a href="/khachhang/list"><i class="bi bi-dot"></i> Quản lí khách hàng</a></li>
+            </ul>
+        </li>
+        <!-- Logout button -->
+        <li class="logout">
+            <a href="/logout"><i class="bi bi-box-arrow-right"></i> Đăng xuất</a>
+        </li>
+    </ul>
+</aside>
 
-<div class="container">
-    <aside class="sidebar">
-        <h2 class="logo">Footstyle</h2>
-        <ul>
-            <li class="menu-item">
-                <a href="javascript:void(0)" onclick="toggleMenu(this)">
-                    Quản lí tài khoản <i class="fa fa-chevron-right"></i>
-                </a>
-                <ul>
-                    <li><a href="#"><i class="bi bi-dot">Quản lý nhân viên</i></a></li>
-                    <li><a href="/khachhang/list"><i class="bi bi-dot">Quản lý khách hàng</i></a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="/index">Quản lí sản phẩm</a>
-            </li>
-        </ul>
-    </aside>
-    <main class="main-content">
+<main class="container">
         <h2 class="title">Danh sách Khách Hàng</h2>
 
         <div class="search">
-            <form action="${pageContext.request.contextPath}/khachhang/list" method="get">
-                <input type="text" name="searchTerm" placeholder="Nhập tên khách hàng" value="${searchTerm}"/>
+            <form action="${pageContext.request.contextPath}/khachhang/list" method="get" style="display: flex; width: 100%;">
+                <input type="text" name="searchTerm" placeholder="Nhập tên khách hàng" value="${searchTerm}" />
                 <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Tìm kiếm</button>
             </form>
+
         </div>
-        <a class="btn btn-primary btnadd" href="/khachhang/add"><i class="bi bi-plus-square-fill icon"></i>Thêm khách
-            hàng</a>
+        <a class="btn btn-primary btnadd" href="/khachhang/add">
+            <i class="bi bi-plus-square-fill icon"></i> Thêm khách hàng
+        </a>
         <table class="table">
             <thead>
             <tr>

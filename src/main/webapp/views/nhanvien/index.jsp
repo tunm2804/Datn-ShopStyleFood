@@ -18,7 +18,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 250px;
+            width: 240px;
             height: 100%;
             background-color: #2c3e50;
             padding: 20px;

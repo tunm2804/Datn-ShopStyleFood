@@ -1,6 +1,6 @@
-package com.demo.repo;
+package com.example.datn_sd_78.repository;
 
-import com.demo.entity.NhanVien;
+import com.example.datn_sd_78.entity.NhanVien;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

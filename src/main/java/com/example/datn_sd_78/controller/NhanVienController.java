@@ -1,9 +1,10 @@
-package com.demo.controller;
+package com.example.datn_sd_78.controller;
 
-import com.demo.entity.ChucVu;
-import com.demo.entity.NhanVien;
-import com.demo.repo.ChucVuRepo;
-import com.demo.repo.NhanVienRepo;
+
+import com.example.datn_sd_78.entity.ChucVu;
+import com.example.datn_sd_78.entity.NhanVien;
+import com.example.datn_sd_78.repository.ChucVuRepo;
+import com.example.datn_sd_78.repository.NhanVienRepo;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
